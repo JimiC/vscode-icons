@@ -9,7 +9,7 @@
   "command.foldersAllDefaultIconPreset.title":"Spezifische Order-Icons umschalten (User Level)",
   "command.restoreIcons.title":"Icon-Manifest zurücksetzen",
   "command.resetProjectDetectionDefaults.title":"Projekterkennung auf Standardwerte zurücksetzen",
-  "configuration.title":"",
+  "configuration.title":"vscode-icons Konfiguration",
   "configuration.dontShowNewVersionMessage.description":"",
   "configuration.dontShowConfigManuallyChangedMessage.description":"",
   "configuration.projectDetection.autoReload.description":"",
