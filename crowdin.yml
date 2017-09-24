@@ -1,0 +1,3 @@
+files:
+  - source: package.nls.json
+    translation: package.nls/package.nls.%two_letters_code%.json
