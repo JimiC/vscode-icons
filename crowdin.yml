@@ -5,3 +5,9 @@ files:
       two_letters_code:
         zh-CN: zh-cn
         zh-TW: zh-tw
+  - source: /locale/lang.en.json
+    translation: /locale/lang.%two_letters_code%.json
+    languages_mapping:
+      two_letters_code:
+        zh-CN: zh-cn
+        zh-TW: zh-tw
