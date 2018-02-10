@@ -7,6 +7,8 @@ node_js:
   - 7.9.0 # vscode >= 1.16.0
   - 7.4.0 # vscode >= 1.12.0 < 1.16.0
   - 6.5.0 # vscode >= 1.8.0 < 1.12.0
+git:
+   submodules: false
 matrix:
   allow_failures:
     - node_js: node
@@ -24,17 +26,36 @@ before_install:
 script: npm run build
 after_success:
   - codecov
-  - wpilgen
+jobs:
+  include:
+    - stage: wiki pages icons list update
+      if: branch = master AND type != pull_request
+      os: linux
+      node_js: 7.9.0
+      script: wpilgen
+      after_success:
+    - stage: docker vsi:latest
+      if: branch = master AND type != pull_request
+      sudo: required
+      language: generic
+      node_js:
+      os:
+      addons:
+      cache:
+      script:
+        - ./docker/trigger-docker-vsi.sh $TRAVIS_TOKEN
+      after_success:
+    - stage: docker vsi:tag
+      if: tag IS present
+      sudo: required
+      language: generic
+      node_js:
+      os:
+      addons:
+      cache:
+      script:
+        - ./docker/trigger-docker-vsi.sh --token $TRAVIS_TOKEN --tag $TRAVIS_TAG
+      after_success:
 
 # See this if we need to test the extension via vscode:
 # https://code.visualstudio.com/Docs/extensions/testing-extensions#_running-tests-automatically-on-travis-ci-build-machines
-
-# sudo: required
-# jobs:
-#   include:
-#     - stage: docker
-#       language: generic
-#       script:
-#         - docker build -t vsi docker
-#         - docker run --rm -t -e task=dist -v ${TRAVIS_BUILD_DIR}/docker-out:/vsi-out vsi
-#         - docker run --rm -t -e task=build vsi
