@@ -5,6 +5,7 @@ import {
   ILanguageResourceManager,
   LangResourceKeys,
   ViewColumn,
+  IWebviewMessage,
 } from '../models';
 import { WebViewPanel } from './webViewPanel';
 
@@ -41,46 +42,39 @@ export class WelcomeWebviewPanel extends WebViewPanel {
         : undefined;
       return this.panel.reveal(columnToShowIn);
     }
-    const content = await this.vscodeManager.workspace.openTextDocument(
-      join(
-        this.options.panelOptions.localResourceRoots[0].path,
-        'views',
-        `${this.options.viewType}.html`,
-      ),
-    );
-    this.panel.webview.html = this.bind(content.getText(), this.data());
+    this.panel.webview.html = await this.bind(this.data());
   }
 
-  protected onMessageReceived(message: any): Promise<string> {
+  protected onMessageReceived(message: IWebviewMessage): Promise<string> {
     switch (message.command) {
-      case 'alert':
+      case 'cbwelcomeChanged':
         return this.vscodeManager.window.showErrorMessage(
-          message.text,
+          `Checkbox checked: ${message.bool}`,
         ) as Promise<string>;
     }
   }
 
-  private data(): { [index: string]: any } {
+  private data(): object {
     // TODO: Use `panel.webview.asWebviewUri` when reaching minimun `vscode v1.38`
     return {
       nonce: this.getNonce(),
       style: this.vscodeManager.Uri.file(
         join(
-          this.options.panelOptions.localResourceRoots[0].path,
+          this.panel.webview.options.localResourceRoots[0].path,
           'style',
           'welcome.css',
         ),
       ).with({ scheme: 'vscode-resource' }),
       script: this.vscodeManager.Uri.file(
         join(
-          this.options.panelOptions.localResourceRoots[0].path,
+          this.panel.webview.options.localResourceRoots[0].path,
           'scripts',
           'welcome.js',
         ),
       ).with({ scheme: 'vscode-resource' }),
       'logo.path': this.vscodeManager.Uri.file(
         join(
-          this.options.panelOptions.localResourceRoots[0].path,
+          this.panel.webview.options.localResourceRoots[0].path,
           'images',
           'logo.svg',
         ),

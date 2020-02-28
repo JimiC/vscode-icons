@@ -1,14 +1,13 @@
 (() => {
   const vscode = acquireVsCodeApi();
-  const cbwelcome = document.getElementById('cbwelcome');
-  setTimeout(() => {
-    cbwelcome.removeAttribute('checked');
+  cbwelcome.addEventListener('change', event => {
     vscode.postMessage({
-      command: 'alert',
-      text: 'Checkbox changed',
+      command: 'cbwelcomeChanged',
+      bool: event.target.checked,
     });
-  }, 5000);
+  });
   window.addEventListener('message', event => {
+    const cbwelcome = document.getElementById('cbwelcome');
     const message = event.data;
     switch (message.command) {
       case 'dontShowThis':

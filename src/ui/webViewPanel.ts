@@ -23,7 +23,7 @@ export abstract class WebViewPanel {
     );
     this.panel.iconPath = this.vscodeManager.Uri.file(
       join(
-        this.options.panelOptions.localResourceRoots[0].path,
+        this.panel.webview.options.localResourceRoots[0].path,
         options.iconPath,
       ),
     ).with({ scheme: 'file' });
@@ -53,15 +53,22 @@ export abstract class WebViewPanel {
     return text;
   }
 
-  protected bind(content: string, data: { [index: string]: any }): string {
-    for (const key in data) {
-      if ({}.hasOwnProperty.call(data, key)) {
-        const regexp = RegExp(`{{${key}}}`, 'ig');
-        const value = /LangResourceKeys/.test(key)
-          ? this.i18nManager.localize(data[key])
-          : data[key];
-        content = content.replace(regexp, value);
-      }
+  protected async bind(data: object, fileName?: string): Promise<string> {
+    let content = (
+      await this.vscodeManager.workspace.openTextDocument(
+        join(
+          this.panel.webview.options.localResourceRoots[0].path,
+          'views',
+          `${fileName || this.options.viewType}.html`,
+        ),
+      )
+    ).getText();
+    for (const key of Object.keys(data)) {
+      const regexp = RegExp(`{{${key}}}`, 'ig');
+      const value = /LangResourceKeys/.test(key)
+        ? this.i18nManager.localize(data[key])
+        : data[key];
+      content = content.replace(regexp, value);
     }
     return content;
   }
