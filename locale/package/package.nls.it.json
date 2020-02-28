@@ -11,6 +11,7 @@
   "command.hideExplorerArrowsPreset.title": "Attiva/disattiva la visibilità delle frecce delle cartelle nell'Explorer (a livello Utente)",
   "command.restoreIcons.title": "Ripristina Manifesto Icone Predefinito",
   "command.resetProjectDetectionDefaults.title": "Ripristina Impostazioni Rilevazione Progetto Predefinite",
+  "command.showWelcomePage.title": "",
   "configuration.title": "configurazione vscode-icons",
   "configuration.dontShowNewVersionMessage.description": "Se 'true', il messaggio di nuova versione non sarà più visualizato.",
   "configuration.dontShowConfigManuallyChangedMessage.description": "Se 'true', il messaggio di 'riavvio' non verrà mostrato quando si cambiano le configurazioni manualmente.",

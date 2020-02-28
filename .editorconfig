@@ -10,7 +10,7 @@ charset = utf-8
 indent_style = space
 indent_size = 2
 
-[*.{svg,gif,png,jpg,jpeg}]
+[*.{svg,gif,png,jpg,jpeg,html}]
 insert_final_newline = false
 
 [*.md]

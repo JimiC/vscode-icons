@@ -43,6 +43,10 @@ export class VSCodeManager implements models.IVSCodeManager {
     return this.vscode.workspace;
   }
 
+  public get Uri(): models.IVSCodeUriStatic {
+    return this.vscode.Uri as models.IVSCodeUriStatic;
+  }
+
   public get supportsThemesReload(): boolean {
     const watchable =
       manifest &&

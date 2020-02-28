@@ -537,9 +537,7 @@ describe('IconsGenerator: tests', function () {
             it(`updated`, async function () {
               getRelativePathStub.resolves('some/path/');
               updateFileStub
-                .callsArgWith(1, [
-                  `"main":"some/path/"\n"path":""\n"scripts":{"vscode:uninstall":""}`,
-                ])
+                .callsArgWith(1, [`"main":"some/path/"\n"path":""\n"scripts":{"vscode:uninstall":""}`])
                 .resolves();
 
               await iconsGenerator.persist(iconsManifest, true);

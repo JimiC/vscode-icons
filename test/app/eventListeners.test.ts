@@ -13,6 +13,7 @@ import * as models from '../../src/models';
 import { NotificationManager } from '../../src/notification/notificationManager';
 import { ProjectAutoDetectionManager } from '../../src/pad/projectAutoDetectionManager';
 import { SettingsManager } from '../../src/settings/settingsManager';
+import { UIManager } from '../../src/ui/uiManager';
 import { VSCodeManager } from '../../src/vscode/vscodeManager';
 import { vsicons } from '../fixtures/vsicons';
 
@@ -26,10 +27,10 @@ describe('ExtensionManager: event listeners tests', function () {
     let iconsGeneratorStub: sinon.SinonStubbedInstance<models.IIconsGenerator>;
     let padMngStub: sinon.SinonStubbedInstance<models.IProjectAutoDetectionManager>;
     let integrityManagerStub: sinon.SinonStubbedInstance<models.IIntegrityManager>;
+    let uiManagerStub: sinon.SinonStubbedInstance<models.IUIManager>;
 
     let onDidChangeConfigurationStub: sinon.SinonStub;
     let logErrorStub: sinon.SinonStub;
-
     let extensionManager: models.IExtensionManager;
     let vsiconsClone: models.IVSIcons;
     let state: models.IState;
@@ -73,6 +74,8 @@ describe('ExtensionManager: event listeners tests', function () {
         models.IIntegrityManager
       >(IntegrityManager);
 
+      uiManagerStub = sandbox.createStubInstance<models.IUIManager>(UIManager);
+
       extensionManager = new ExtensionManager(
         vscodeManagerStub,
         configManagerStub,
@@ -81,6 +84,7 @@ describe('ExtensionManager: event listeners tests', function () {
         iconsGeneratorStub,
         padMngStub,
         integrityManagerStub,
+        uiManagerStub,
       );
 
       logErrorStub = sandbox.stub(ErrorHandler, 'logError');

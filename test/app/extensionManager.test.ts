@@ -14,6 +14,7 @@ import * as models from '../../src/models';
 import { NotificationManager } from '../../src/notification/notificationManager';
 import { ProjectAutoDetectionManager } from '../../src/pad/projectAutoDetectionManager';
 import { SettingsManager } from '../../src/settings/settingsManager';
+import { UIManager } from '../../src/ui/uiManager';
 import { VSCodeManager } from '../../src/vscode/vscodeManager';
 import { vsicons } from '../fixtures/vsicons';
 
@@ -27,9 +28,11 @@ describe('ExtensionManager: tests', function () {
     let iconsGeneratorStub: sinon.SinonStubbedInstance<models.IIconsGenerator>;
     let padMngStub: sinon.SinonStubbedInstance<models.IProjectAutoDetectionManager>;
     let integrityManagerStub: sinon.SinonStubbedInstance<models.IIntegrityManager>;
+    let uiManagerStub: sinon.SinonStubbedInstance<models.IUIManager>;
     let onDidChangeConfigurationStub: sinon.SinonStub;
     let registerCommandStub: sinon.SinonStub;
     let executeCommandStub: sinon.SinonStub;
+
     let extensionManager: models.IExtensionManager;
     let vsiconsClone: models.IVSIcons;
 
@@ -80,6 +83,8 @@ describe('ExtensionManager: tests', function () {
         models.IIntegrityManager
       >(IntegrityManager);
 
+      uiManagerStub = sandbox.createStubInstance<models.IUIManager>(UIManager);
+
       extensionManager = new ExtensionManager(
         vscodeManagerStub,
         configManagerStub,
@@ -88,6 +93,7 @@ describe('ExtensionManager: tests', function () {
         iconsGeneratorStub,
         padMngStub,
         integrityManagerStub,
+        uiManagerStub,
       );
     });
 

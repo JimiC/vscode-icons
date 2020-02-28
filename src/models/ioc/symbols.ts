@@ -8,6 +8,7 @@ export const SYMBOLS = {
   IProjectAutoDetectionManager: Symbol.for('IProjectAutoDetectionManager'),
   IIntegrityManager: Symbol.for('IIntegrityManager'),
   IExtensionManager: Symbol.for('IExtensionManager'),
+  IUIManager: Symbol.for('IUIManager'),
   ILocale: Symbol.for('ILocale'),
   IVSCode: Symbol.for('IVSCode'),
   IVSCodeExtensionContext: Symbol.for('IVSCodeExtensionContext'),

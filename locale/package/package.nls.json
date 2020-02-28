@@ -11,6 +11,7 @@
   "command.hideExplorerArrowsPreset.title": "Toggle Explorer Folder Arrows Visibility (User Level)",
   "command.restoreIcons.title": "Restore Default Icon Manifest",
   "command.resetProjectDetectionDefaults.title": "Reset Project Detection Defaults",
+  "command.showWelcomePage.title": "Show Welcome Page",
   "configuration.title": "vscode-icons configuration",
   "configuration.dontShowNewVersionMessage.description": "If set to 'true', the new version message won't be shown anymore.",
   "configuration.dontShowConfigManuallyChangedMessage.description": "If set to 'true', when manually changing the configurations, the 'restart' message won't be shown.",

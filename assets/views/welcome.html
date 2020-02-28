@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'none'; img-src vscode-resource: https:; script-src vscode-resource: 'nonce-{{nonce}}'; style-src vscode-resource: 'nonce-{{nonce}}';" />
+  <link rel="stylesheet" type="text/css" nonce="{{nonce}}" href="{{style}}">
+</head>
+
+<body>
+  <div>
+    <img id="logo" src="vscode-resource:{{logo.path}}" />
+  </div>
+  <div>
+    <input type="checkbox" id="cbwelcome">
+    <label for="cbwelcome">{{LangResourceKeys.dontShowThis}}</label>
+  </div>
+  <script nonce="{{nonce}}" src="{{script}}"></script>
+</body>
+
+</html>

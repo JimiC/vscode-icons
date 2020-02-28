@@ -11,6 +11,7 @@
   "command.hideExplorerArrowsPreset.title": "エクスプローラーのフォルダ矢印表示の切り替え (ユーザー設定)",
   "command.restoreIcons.title": "アイコン設定の復元",
   "command.resetProjectDetectionDefaults.title": "プロジェクト検出設定をリセット",
+  "command.showWelcomePage.title": "",
   "configuration.title": "vscode-icons",
   "configuration.dontShowNewVersionMessage.description": "'true'に設定すると、新バージョンの通知を表示しません。",
   "configuration.dontShowConfigManuallyChangedMessage.description": "'true'に設定すると、設定を変更したときに「再読み込み」のメッセージを表示しません。",

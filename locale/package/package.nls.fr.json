@@ -11,6 +11,7 @@
   "command.hideExplorerArrowsPreset.title": "Activer/Désactiver Les Flèches De Dossier Dans L'explorateur (Configuration de l'utilisateur seulement)",
   "command.restoreIcons.title": "Restaurer les icônes par défaut",
   "command.resetProjectDetectionDefaults.title": "Restaurer Les Paramètres Défini Par La Detection Automatique De Projet.",
+  "command.showWelcomePage.title": "",
   "configuration.title": "Configuration de vscode-icons.",
   "configuration.dontShowNewVersionMessage.description": "Cacher les messages pour les prochaines versions.",
   "configuration.dontShowConfigManuallyChangedMessage.description": "N'affiche pas le message 'Recharger' après un changement manuelle des configurations.",

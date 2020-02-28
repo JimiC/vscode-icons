@@ -1,3 +1,8 @@
+export interface IVSCodeUriStatic extends IVSCodeUri {
+  file(path: string): IVSCodeUri;
+  parse(value: string, strict?: boolean): IVSCodeUri;
+}
+
 export interface IVSCodeUri {
   readonly scheme: string;
   readonly authority: string;

@@ -11,6 +11,7 @@
   "command.hideExplorerArrowsPreset.title": "Conmutar la visibilidad de las flechas de carpetas del explorador (Nivel de área de trabajo)",
   "command.restoreIcons.title": "Restaurar el manifiesto de iconos a sus valores iniciales",
   "command.resetProjectDetectionDefaults.title": "Restaurar la detección de proyectos a sus valores iniciales",
+  "command.showWelcomePage.title": "",
   "configuration.title": "Configuración de vscode-icons",
   "configuration.dontShowNewVersionMessage.description": "Si 'true', no se mostrará más el mensaje de aviso de nueva versión.",
   "configuration.dontShowConfigManuallyChangedMessage.description": "Si 'true', no se mostrará el mensaje 'reiniciar' al cambiar manualmente las configuraciones.",

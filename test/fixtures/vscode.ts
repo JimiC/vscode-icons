@@ -4,6 +4,7 @@ const env: any = {};
 const commands: any = {};
 const window: any = {};
 const workspace: any = {};
+const Uri: any = {};
 
 export const vscode: IVSCode = {
   env,
@@ -11,4 +12,5 @@ export const vscode: IVSCode = {
   version: '1.0.0',
   window,
   workspace,
+  Uri,
 };

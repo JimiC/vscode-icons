@@ -23,6 +23,7 @@ export class ExtensionManager implements models.IExtensionManager {
     private iconsGenerator: models.IIconsGenerator,
     private projectAutoDetectionManager: models.IProjectAutoDetectionManager,
     private integrityManager: models.IIntegrityManager,
+    private uiManager: models.IUIManager,
   ) {
     // register event listener for configuration changes
     this.vscodeManager.workspace.onDidChangeConfiguration(
@@ -227,6 +228,11 @@ export class ExtensionManager implements models.IExtensionManager {
       // eslint-disable-next-line @typescript-eslint/unbound-method
       this.applyCustomization,
     );
+  }
+
+  // @ts-ignore: Called via reflection
+  private showWelcomePageCommand(): Promise<void> {
+    return this.uiManager.showWelcomePage();
   }
 
   // @ts-ignore: Called via reflection

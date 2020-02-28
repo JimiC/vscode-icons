@@ -1,8 +1,11 @@
-import { IVSCodeWorkspace } from './vscodeWorkspace';
-import { IVSCodeEnv } from './vscodeEnv';
-import { IVSCodeCommands } from './vscodeCommands';
-import { IVSCodeWindow } from './vscodeWindow';
-import { IVSCodeExtensionContext } from './vscodeExtensionContext';
+import {
+  IVSCodeCommands,
+  IVSCodeEnv,
+  IVSCodeExtensionContext,
+  IVSCodeWindow,
+  IVSCodeWorkspace,
+  IVSCodeUriStatic,
+} from './api';
 
 export interface IVSCodeManager {
   context: IVSCodeExtensionContext;
@@ -11,6 +14,7 @@ export interface IVSCodeManager {
   version: string;
   window: IVSCodeWindow;
   workspace: IVSCodeWorkspace;
+  Uri: IVSCodeUriStatic;
   supportsThemesReload: boolean;
   isSupportedVersion: boolean;
   getWorkspacePaths(): string[];

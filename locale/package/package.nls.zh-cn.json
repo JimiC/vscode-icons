@@ -11,6 +11,7 @@
   "command.hideExplorerArrowsPreset.title": "切换资源管理器的文件夹箭头的可见性（用户级别）",
   "command.restoreIcons.title": "恢复成默认图标模式",
   "command.resetProjectDetectionDefaults.title": "重置工程文件侦测模式为默认设置",
+  "command.showWelcomePage.title": "",
   "configuration.title": "vscode-icons 设置",
   "configuration.dontShowNewVersionMessage.description": "如果设置成'true'，关于新的版本消息将不再显示",
   "configuration.dontShowConfigManuallyChangedMessage.description": "如果设置成'true'，手动修改配置后不提醒「重启后生效」",

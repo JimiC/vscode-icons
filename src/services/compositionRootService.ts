@@ -18,6 +18,7 @@ import * as models from '../models';
 import { NotificationManager } from '../notification/notificationManager';
 import { ProjectAutoDetectionManager } from '../pad/projectAutoDetectionManager';
 import { SettingsManager } from '../settings/settingsManager';
+import { UIManager } from '../ui/uiManager';
 import { VSCodeManager } from '../vscode/vscodeManager';
 
 type Class = new (...args: any[]) => any;
@@ -64,6 +65,7 @@ export class CompositionRootService {
           models.SYMBOLS.IIconsGenerator,
           models.SYMBOLS.IProjectAutoDetectionManager,
           models.SYMBOLS.IIntegrityManager,
+          models.SYMBOLS.IUIManager,
         ],
       ],
       [ConfigManager, [models.SYMBOLS.IVSCodeManager]],
@@ -89,6 +91,13 @@ export class CompositionRootService {
         [models.SYMBOLS.IVSCode, models.SYMBOLS.IVSCodeExtensionContext],
       ],
       [IntegrityManager, []],
+      [
+        UIManager,
+        [
+          models.SYMBOLS.IVSCodeManager,
+          models.SYMBOLS.ILanguageResourceManager,
+        ],
+      ],
     ];
     this.dispose();
   }
@@ -143,6 +152,7 @@ export class CompositionRootService {
     bind<models.IIntegrityManager>(models.SYMBOLS.IIntegrityManager).to(
       IntegrityManager,
     );
+    bind<models.IUIManager>(models.SYMBOLS.IUIManager).to(UIManager);
     bind<models.IVSCodeManager>(models.SYMBOLS.IVSCodeManager).to(
       VSCodeManager,
     );

@@ -11,6 +11,7 @@
   "command.hideExplorerArrowsPreset.title": "Alternar visibilidade de setas de pastas do explorador (nível usuário)",
   "command.restoreIcons.title": "Restaurar padrão ícone do manifesto",
   "command.resetProjectDetectionDefaults.title": "Redefinir padrões de detecção de projeto",
+  "command.showWelcomePage.title": "",
   "configuration.title": "configuração do vscode-icons",
   "configuration.dontShowNewVersionMessage.description": "Se definido como 'true', a mensagem de versão nova não vai ser mais mostrada.",
   "configuration.dontShowConfigManuallyChangedMessage.description": "Se definida como 'true', quando alterar manualmente as configurações, a mensagem de 'reiniciar' não será mostrada.",

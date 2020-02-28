@@ -11,6 +11,7 @@
   "command.hideExplorerArrowsPreset.title": "Sichtbarkeit der Explorer Ordner Pfeile ändern (Nutzer Level)",
   "command.restoreIcons.title": "Icon-Manifest zurücksetzen",
   "command.resetProjectDetectionDefaults.title": "Projekterkennung auf Standardwerte zurücksetzen",
+  "command.showWelcomePage.title": "",
   "configuration.title": "vscode-icons Konfiguration",
   "configuration.dontShowNewVersionMessage.description": "Wenn auf 'true' gesetzt, zeigt die Erweiterung keine Benachrichtigung nach dem Installieren einer neuen Version an.",
   "configuration.dontShowConfigManuallyChangedMessage.description": "Wenn auf 'true' gesetzt, wird bei manuellen Änderungen an der Konfiguration keine 'Neu starten'-Nachricht angezeigt.",
