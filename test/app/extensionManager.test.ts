@@ -145,35 +145,47 @@ describe('ExtensionManager: tests', function () {
       });
 
       it(`functions are called with the specific order`, async function () {
+        const callOrder: string[] = [];
+
         isNewVersionStub.value(true);
+        registerCommandsStub.callsFake(() => {
+          callOrder.push('registerCommands');
+        });
+        manageIntroMessageStub.callsFake(() => {
+          callOrder.push('manageIntroMessage');
+          return Promise.resolve();
+        });
+        manageCustomizationsStub.callsFake(() => {
+          callOrder.push('manageCustomizations');
+          return Promise.resolve();
+        });
+        padMngStub.detectProjects.callsFake(() => {
+          callOrder.push('detectProjects');
+          return Promise.resolve([] as models.IProjectDetectionResult[]);
+        });
+        applyProjectDetectionStub.callsFake(() => {
+          callOrder.push('applyProjectDetection');
+          return Promise.resolve();
+        });
+        settingsManagerStub.updateStatus.callsFake(() => {
+          callOrder.push('updateStatus');
+          return Promise.resolve({
+            version: '',
+            status: models.ExtensionStatus.activated,
+            welcomeShown: true,
+          });
+        });
 
         await extensionManager.activate();
 
-        expect(
-          manageIntroMessageStub.calledImmediatelyAfter(registerCommandsStub),
-        ).to.be.true;
-        expect(
-          manageCustomizationsStub.calledImmediatelyAfter(
-            manageIntroMessageStub,
-          ),
-        ).to.be.true;
-        expect(
-          padMngStub.detectProjects.calledImmediatelyAfter(
-            manageCustomizationsStub,
-          ),
-        ).to.be.true;
-
-        expect(
-          applyProjectDetectionStub.calledImmediatelyAfter(
-            // eslint-disable-next-line @typescript-eslint/unbound-method
-            padMngStub.detectProjects,
-          ),
-        ).to.be.true;
-        expect(
-          settingsManagerStub.updateStatus.calledImmediatelyAfter(
-            applyProjectDetectionStub,
-          ),
-        ).to.be.true;
+        expect(callOrder).to.deep.equal([
+          'registerCommands',
+          'manageIntroMessage',
+          'manageCustomizations',
+          'detectProjects',
+          'applyProjectDetection',
+          'updateStatus',
+        ]);
 
         expect(vscodeManagerStub.isSupportedVersion).to.be.true;
         expect(settingsManagerStub.isNewVersion).to.be.true;
